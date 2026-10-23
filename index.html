@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GS9 – Unit 3 – Luyện tập tuần 23/10</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#1e2a3a;--muted:#5d6878;--brand:#3b5bfd;--brand-d:#2a41c9;--good:#1a8f4d;--bad:#d33a3f;--warn:#f5a524;--line:#d9e0ec;--chip:#eef2fb;--r:14px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Segoe UI',Roboto,Arial,sans-serif;font-size:18px;line-height:1.55;padding-bottom:70px}
+.wrap{max-width:780px;margin:0 auto;padding:14px 12px 30px}
+.hero{background:linear-gradient(135deg,#3b5bfd,#6d3fe0);color:#fff;border-radius:var(--r);padding:20px 18px;margin-bottom:14px}
+.hero h1{margin:0 0 4px;font-size:1.35rem;line-height:1.3}
+.hero p{margin:0;font-size:.95rem;opacity:.95}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:14px}
+.tip{background:#fff8e6;border:1px dashed var(--warn);border-radius:12px;padding:12px 14px;font-size:.95rem;margin-bottom:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.grid2{grid-template-columns:1fr}}
+label.f{display:block;font-size:.85rem;color:var(--muted);font-weight:600;margin-bottom:3px}
+input[type=text],textarea{width:100%;border:2px solid var(--line);border-radius:10px;padding:11px 12px;font-size:1rem;font-family:inherit;background:#fbfcfe}
+textarea{min-height:64px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--brand)}
+.sticky{position:sticky;top:0;z-index:20;background:var(--bg);padding:8px 0 6px}
+.bar{height:12px;border-radius:99px;background:#dde4f0;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#3b5bfd,#6d3fe0);transition:width .25s}
+.plabel{font-size:.85rem;color:var(--muted);text-align:right;margin-top:3px}
+.strip{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{font-size:.78rem;background:var(--chip);border:1px solid var(--line);border-radius:99px;padding:3px 9px;color:var(--muted);white-space:nowrap}
+.chip.done{background:#e6f7ec;border-color:#9bd9b4;color:#116b39;font-weight:700}
+.lv{margin:22px 0 2px;font-size:1.15rem;font-weight:800;color:var(--brand-d);display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.lv .bd{font-size:.8rem;font-weight:700;border-radius:99px;padding:3px 10px;background:#eceff5;color:#8a93a3}
+.lv .bd.on{background:#fff2c4;color:#7a5200}
+.lvsub{font-size:.9rem;color:var(--muted);margin-bottom:8px}
+.q{padding:14px 0;border-top:1px solid var(--line)}
+.q:first-child{border-top:0}
+.qp{font-weight:600;margin-bottom:9px}
+.qn{color:var(--brand);margin-right:4px}
+.opts{display:grid;grid-template-columns:1fr;gap:8px}
+.opt{border:2px solid var(--line);background:#fbfcfe;border-radius:10px;padding:11px 13px;cursor:pointer;user-select:none;font-size:1rem}
+.opt:hover{border-color:var(--brand)}
+.opt.sel{border-color:var(--brand);background:var(--chip);font-weight:700}
+.opt.ok{border-color:var(--good);background:#e8f8ef;font-weight:700}
+.opt.no{border-color:var(--bad);background:#fdeceb}
+.q.good{background:#f3fcf6;border-radius:10px}.q.bad{background:#fdf5f5;border-radius:10px}
+.note{margin-top:8px;font-size:.92rem;padding:8px 10px;border-radius:8px}
+.note.ok{background:#e8f8ef;color:#0d6b37}.note.no{background:#fdeceb;color:#9c1f24}
+.xp{display:inline-block;font-weight:700;margin-left:6px}
+.btn{display:block;width:100%;background:var(--brand);color:#fff;border:0;border-radius:12px;padding:15px;font-size:1.05rem;font-weight:800;cursor:pointer}
+.btn:hover{background:var(--brand-d)}
+.btn.sec{background:#fff;color:var(--brand);border:2px solid var(--brand);margin-top:10px}
+.btn.sm{display:inline-block;width:auto;padding:9px 16px;font-size:.95rem;margin-top:8px}
+.submit{position:sticky;bottom:0;padding:12px 0 6px;background:linear-gradient(180deg,rgba(244,247,251,0),var(--bg) 35%)}
+.hidden{display:none!important}
+.err{color:var(--bad);font-size:.9rem;margin-top:6px}
+.res{text-align:center}
+.score{font-size:3.2rem;font-weight:900;color:var(--brand)}
+.rank{font-size:1.2rem;font-weight:800;margin:4px 0}
+.badges{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0}
+.status{font-size:.85rem;color:var(--muted);margin-top:8px}
+.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero"><h1>GS9 – Unit 3 – Luyện tập tuần 23/10</h1><p>Unit 3: Healthy Living for Teens · 40 câu · 35 phút · Trọng tâm: Động từ khuyết thiếu (should, shouldn't, must, mustn't, have to, ought to, can, may, might) trong câu điều kiện loại 1</p></div>
+<div class="tip"><b>Ghi nhớ nhanh:</b> <b>If + hiện tại đơn, S + will/can/may/might/should/must/have to/ought to + V (nguyên mẫu, không có to)</b>.<br>Ví dụ: <i>If you feel stressed out, you should talk to someone.</i> / <i>If you don't sleep enough, you may feel tired.</i><br>Mệnh lệnh + or → <i>If you don't…</i>; <i>Unless = If … not</i>. Lưu ý: have to chia theo chủ ngữ (she has to); ought luôn đi với to.<br><small>🎮 Mỗi câu đúng +10 XP · 3 câu đúng liên tiếp → câu kế tiếp Combo x2 · Boss +20 XP/câu. XP chỉ để vui, điểm thật tính theo thang 10.</small></div>
+<div class="card">
+<div class="grid2">
+<div><label class="f">Trường</label><input type="text" id="school" placeholder="VD: THCS Nguyễn Văn Trỗi"></div>
+<div><label class="f">Lớp</label><input type="text" id="sclass" placeholder="VD: 9A1"></div>
+</div>
+<div style="margin-top:10px"><label class="f">Họ và tên *</label><input type="text" id="sname" placeholder="Nhập họ và tên của em"></div>
+<div class="err hidden" id="err"></div>
+</div>
+<div class="sticky">
+<div class="bar"><div class="fill" id="fill"></div></div>
+<div class="plabel" id="plabel">Đã trả lời 0/40 câu</div>
+<div class="strip" id="strip"></div>
+</div>
+<div id="body"></div>
+<div class="submit" id="submitbar"><button class="btn" onclick="submitTest()">Nộp bài &amp; xem kết quả</button></div>
+<div class="card res hidden" id="result">
+<div class="score" id="rscore"></div>
+<div class="rank" id="rrank"></div>
+<div id="rsub"></div>
+<div class="badges" id="rbadges"></div>
+<div class="status" id="status"></div>
+<button class="btn sec" id="retrybtn" onclick="startPractice()">🔁 Luyện lại câu sai (chỉ để luyện, không gửi điểm)</button>
+</div>
+<div class="card hidden" id="practice"></div>
+<div class="foot">Kết quả được gửi tự động cho cô sau khi em nộp bài. Chúc em học tốt!</div>
+</div>
+<script>
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycby08od-VjK63bcLdiXGBgjz9imiBImjbBBKmjHqN1AnzfpBhEjFyItSniMfbPKm9TA/exec";
+const CLASS_LABEL="GS9";
+const TEST_NAME="GS9 Unit 3 Healthy Living for Teens - Luyen tap tuan 23/10 (40 cau)";
+const UNIT="3";
+const PASSAGE="Minh is a ninth grader who loves playing computer games. Last term, he often stayed up late and slept only five hours a night, so he felt tired in class. His mother told him, “If you don't get enough sleep, you may get sick.” Minh decided to change his habits. Now he turns off his phone at nine o'clock and goes to bed before ten. He also joins the school football club twice a week and drinks a lot of water. If he feels worried about an exam, he practises deep breathing for a few minutes. Minh says he is healthier and more optimistic, and his teachers say he pays more attention in class.";
+const LEVELS={"1":["Level 1 – Khởi động","⭐ Từ vựng","Nối từ/cụm từ với nghĩa hoặc định nghĩa."],"2":["Level 2 – Phát âm","🔊 Phát âm","Phần gạch chân và trọng âm."],"3":["Level 3 – Từ vựng & ngữ pháp","🧠 Ngữ pháp","Chọn đáp án đúng A, B, C hoặc D."],"4":["Level 4 – Biển báo / thông báo","🪧 Biển báo","Chọn câu đúng nghĩa với thông báo."],"5":["Level 5 – Word form","🔤 Word form","Viết dạng đúng của từ trong ngoặc."],"6":["Level 6 – Đồng nghĩa / trái nghĩa","🔁 Đồng-Trái nghĩa","Chọn từ đồng nghĩa hoặc trái nghĩa với từ gạch chân."],"7":["Level 7 – Tìm lỗi sai","🔍 Tìm lỗi","Chọn phần (A, B, C, D) có lỗi sai."],"8":["Level 8 – Viết lại câu","✍️ Viết lại câu","Viết lại câu sao cho nghĩa không đổi, bắt đầu bằng phần gợi ý."],"9":["BOSS LEVEL – Đọc hiểu","👑 Boss","Đọc đoạn văn và trả lời. Điểm thưởng +20 XP mỗi câu!"]};
+const Q=[{"lv": 1, "t": "mcq", "p": "Chọn nghĩa tiếng Việt đúng của: <b>work out</b>", "o": ["thức khuya", "tập thể dục", "giảm cân", "nghỉ ngơi"], "a": 1, "e": "“work out” nghĩa là “tập thể dục”.", "id": "u3_01"}, {"lv": 1, "t": "mcq", "p": "Chọn nghĩa tiếng Việt đúng của: <b>deadline</b>", "o": ["thói quen hàng ngày", "sự ưu tiên", "lịch trình", "hạn chót"], "a": 3, "e": "“deadline” nghĩa là “hạn chót”.", "id": "u3_02"}, {"lv": 1, "t": "mcq", "p": "Chọn từ/cụm từ đúng với định nghĩa: “to do something later than you planned”", "o": ["delay", "submit", "enhance", "praise"], "a": 0, "e": "Định nghĩa này mô tả “delay” (trì hoãn).", "id": "u3_03"}, {"lv": 1, "t": "mcq", "p": "Chọn nghĩa tiếng Việt đúng của: <b>fattening</b>", "o": ["tốt cho sức khỏe", "tỉnh táo", "làm béo lên, gây mập", "căng thẳng"], "a": 2, "e": "“fattening” nghĩa là “làm béo lên, gây mập”.", "id": "u3_04"}, {"lv": 1, "t": "mcq", "p": "Chọn từ/cụm từ đúng với định nghĩa: “needing to be dealt with immediately”", "o": ["effective", "urgent", "optimistic", "awake"], "a": 1, "e": "Định nghĩa này mô tả “urgent” (khẩn cấp).", "id": "u3_05"}, {"lv": 2, "t": "mcq", "p": "Chọn từ có phần gạch chân phát âm khác với các từ còn lại.<br>A. reduc<u>ed</u> B. punish<u>ed</u> C. concentrat<u>ed</u> D. enhanc<u>ed</u>", "o": ["reduced", "punished", "concentrated", "enhanced"], "a": 2, "e": "“concentrated” đọc /ɪd/ (sau âm /t/); các từ còn lại đọc /t/.", "id": "u3_06"}, {"lv": 2, "t": "mcq", "p": "Chọn từ có phần gạch chân phát âm khác với các từ còn lại.<br>A. <u>th</u>ey B. heal<u>th</u>y C. <u>th</u>roat D. mon<u>th</u>", "o": ["they", "healthy", "throat", "month"], "a": 0, "e": "“they” đọc /ð/; các từ còn lại đọc /θ/.", "id": "u3_07"}, {"lv": 2, "t": "mcq", "p": "Chọn từ có trọng âm chính khác với các từ còn lại.<br>A. schedule B. routine C. effort D. brain", "o": ["schedule", "routine", "effort", "brain"], "a": 1, "e": "“routine” nhấn âm 2; các từ còn lại nhấn âm 1.", "id": "u3_08"}, {"lv": 2, "t": "mcq", "p": "Chọn từ có trọng âm chính khác với các từ còn lại.<br>A. prioritise B. consistently C. accomplish D. calendar", "o": ["prioritise", "consistently", "accomplish", "calendar"], "a": 3, "e": "“calendar” nhấn âm 1; các từ còn lại nhấn âm 2.", "id": "u3_09"}, {"lv": 3, "t": "mcq", "p": "If you want to get good marks, you ______ review your lessons regularly.", "o": ["mustn't", "can't", "should", "shouldn't"], "a": 2, "e": "Lời khuyên → should.", "id": "u3_10"}, {"lv": 3, "t": "mcq", "p": "If you often feel sleepy in class, you ought ______ go to bed earlier.", "o": ["to", "for", "that", "of"], "a": 0, "e": "Cấu trúc: ought to + V.", "id": "u3_11"}, {"lv": 3, "t": "mcq", "p": "If it rains tomorrow, we ______ play badminton in the yard.", "o": ["will to", "may to", "must to", "can't"], "a": 3, "e": "Không thể chơi ngoài sân khi mưa → can't; modal + V không có to.", "id": "u3_12"}, {"lv": 3, "t": "mcq", "p": "If Lan wants to join the swimming club, she ______ get her parents' permission.", "o": ["have to", "has to", "having to", "must to"], "a": 1, "e": "Chủ ngữ “she” → has to + V.", "id": "u3_13"}, {"lv": 3, "t": "mcq", "p": "If you see the 'No Phones' sign in the exam room, you ______ use your phone.", "o": ["mustn't", "must", "can", "will"], "a": 0, "e": "Điều cấm → mustn't.", "id": "u3_14"}, {"lv": 3, "t": "mcq", "p": "If you eat too many sweets, you ______ get toothache.", "o": ["should to", "might to", "might", "are"], "a": 2, "e": "might + V nguyên mẫu (khả năng có thể xảy ra).", "id": "u3_15"}, {"lv": 3, "t": "mcq", "p": "Teenagers should ______ at least eight hours of sleep a night to stay alert.", "o": ["do", "get", "make", "take"], "a": 1, "e": "get enough sleep / get eight hours of sleep = ngủ đủ giấc.", "id": "u3_16"}, {"lv": 3, "t": "mcq", "p": "If your phone distracts you, you should ______ it while doing your homework.", "o": ["sign out", "look after", "get through", "turn off"], "a": 3, "e": "turn off = tắt.", "id": "u3_17"}, {"lv": 3, "t": "mcq", "p": "Many teens ______ from stress because of too much homework.", "o": ["suffer", "praise", "delay", "submit"], "a": 0, "e": "suffer from = chịu đựng, bị ảnh hưởng bởi.", "id": "u3_18"}, {"lv": 3, "t": "mcq", "p": "If you exercise regularly, you can ______ a healthy body.", "o": ["delay", "punish", "maintain", "suffer"], "a": 2, "e": "maintain = duy trì.", "id": "u3_19"}, {"lv": 4, "t": "mcq", "p": "Đọc biển báo/thông báo và chọn câu đúng nghĩa.<br><i>NOTICE: Students who feel stressed can visit the Counselling Room on the second floor. No appointment is needed.</i>", "o": ["Students must make an appointment first.", "The Counselling Room is on the first floor.", "Students can go to the Counselling Room without booking.", "Only teachers can use the Counselling Room."], "a": 2, "e": "“No appointment is needed” = không cần hẹn trước.", "id": "u3_20"}, {"lv": 4, "t": "mcq", "p": "Đọc biển báo/thông báo và chọn câu đúng nghĩa.<br><i>NOTICE: Sleep Well Week! Students who go to bed before 10 p.m. every day this week may win a small prize.</i>", "o": ["Everyone has to go to bed before 10 p.m.", "Students who go to bed early all week may win a prize.", "Students who stay up late will get a prize.", "The prize is for students who sleep during the day."], "a": 1, "e": "Đi ngủ trước 10 giờ tối mỗi ngày trong tuần → có thể trúng thưởng.", "id": "u3_21"}, {"lv": 5, "t": "fill", "p": "A ______ (BALANCE) diet includes vegetables, fruit and protein.", "acc": ["balanced"], "ans": "balanced", "e": "Trước danh từ “diet” cần tính từ: balanced.", "id": "u3_22"}, {"lv": 5, "t": "fill", "p": "Many teens feel ______ (HAPPY) when they don't get enough sleep.", "acc": ["unhappy"], "ans": "unhappy", "e": "Nghĩa phủ định sau “feel”: unhappy.", "id": "u3_23"}, {"lv": 5, "t": "fill", "p": "You should plan your time ______ (CARE) to avoid stress.", "acc": ["carefully"], "ans": "carefully", "e": "Bổ nghĩa cho động từ “plan” cần trạng từ: carefully.", "id": "u3_24"}, {"lv": 5, "t": "fill", "p": "You need to ______ (PRIORITY) your tasks and do the urgent ones first.", "acc": ["prioritise", "prioritize"], "ans": "prioritise", "e": "Sau “to” cần động từ: prioritise.", "id": "u3_25"}, {"lv": 5, "t": "fill", "p": "Doing yoga brings us peace and ______ (HAPPY).", "acc": ["happiness"], "ans": "happiness", "e": "Sau “and” (song song với danh từ “peace”) cần danh từ: happiness.", "id": "u3_26"}, {"lv": 6, "t": "mcq", "p": "Chọn từ/cụm từ GẦN NGHĨA nhất với từ gạch chân.<br>You should <u>get rid of</u> bad habits like staying up late.", "o": ["keep", "start", "share", "remove"], "a": 3, "e": "get rid of ≈ remove (loại bỏ).", "id": "u3_27"}, {"lv": 6, "t": "mcq", "p": "Chọn từ/cụm từ GẦN NGHĨA nhất với từ gạch chân.<br>Students need to <u>accomplish</u> all the tasks before Friday.", "o": ["finish", "forget", "avoid", "begin"], "a": 0, "e": "accomplish ≈ finish (hoàn thành).", "id": "u3_28"}, {"lv": 6, "t": "mcq", "p": "Chọn từ/cụm từ TRÁI NGHĨA với từ gạch chân.<br>Her new schedule is very <u>effective</u>.", "o": ["useful", "helpful", "useless", "successful"], "a": 2, "e": "effective (hiệu quả) trái nghĩa với useless (vô ích).", "id": "u3_29"}, {"lv": 6, "t": "mcq", "p": "Chọn từ/cụm từ TRÁI NGHĨA với từ gạch chân.<br>Tom has <u>gained</u> weight since he started eating fast food every day.", "o": ["added", "lost", "raised", "increased"], "a": 1, "e": "gain weight (tăng cân) trái nghĩa với lose weight (giảm cân).", "id": "u3_30"}, {"lv": 7, "t": "mcq", "p": "Tìm phần có lỗi sai (A, B, C hoặc D).<br>If you <u>(A) don't</u> get <u>(B) enough</u> sleep, you <u>(C) will</u> <u>(D) feeling</u> tired in class.", "o": ["A", "B", "C", "D"], "a": 3, "e": "Sau will dùng V nguyên mẫu: will feel.", "id": "u3_31"}, {"lv": 7, "t": "mcq", "p": "Tìm phần có lỗi sai (A, B, C hoặc D).<br>If Mai <u>(A) feels</u> sick tomorrow, she <u>(B) have</u> <u>(C) to</u> <u>(D) see</u> a doctor.", "o": ["A", "B", "C", "D"], "a": 1, "e": "Chủ ngữ “she” → has to.", "id": "u3_32"}, {"lv": 7, "t": "mcq", "p": "Tìm phần có lỗi sai (A, B, C hoặc D).<br>If you <u>(A) want</u> to join the club, you <u>(B) must</u> <u>(C) filling</u> in the form <u>(D) first</u>.", "o": ["A", "B", "C", "D"], "a": 2, "e": "Sau must dùng V nguyên mẫu: must fill.", "id": "u3_33"}, {"lv": 8, "t": "rewrite", "p": "Get enough sleep, or you won't be able to concentrate in class.<br>→ If you ...", "acc": ["if you dont get enough sleep you wont be able to concentrate in class", "if you dont get enough sleep you will not be able to concentrate in class", "if you do not get enough sleep you wont be able to concentrate in class", "if you do not get enough sleep you will not be able to concentrate in class"], "ans": "if you dont get enough sleep you wont be able to concentrate in class", "e": "Mệnh lệnh + or → If you don't…, you won't…", "id": "u3_34"}, {"lv": 8, "t": "rewrite", "p": "You should do exercise regularly if you want to stay fit.<br>→ If you want ...", "acc": ["if you want to stay fit you should do exercise regularly"], "ans": "if you want to stay fit you should do exercise regularly", "e": "Đảo mệnh đề if lên đầu: If + hiện tại đơn, S + should + V.", "id": "u3_35"}, {"lv": 8, "t": "rewrite", "p": "Unless you take regular breaks, you may feel stressed out.<br>→ If you ...", "acc": ["if you dont take regular breaks you may feel stressed out", "if you do not take regular breaks you may feel stressed out"], "ans": "if you dont take regular breaks you may feel stressed out", "e": "Unless = If… not.", "id": "u3_36"}, {"lv": 8, "t": "rewrite", "p": "Eat less junk food. Then you can lose weight.<br>→ If you ...", "acc": ["if you eat less junk food you can lose weight"], "ans": "if you eat less junk food you can lose weight", "e": "If + hiện tại đơn, S + can + V.", "id": "u3_37"}, {"lv": 8, "t": "rewrite", "p": "You ought to consult a doctor if you have a high temperature for three days.<br>→ If you ...", "acc": ["if you have a high temperature for three days you ought to consult a doctor", "if you have a high temperature for three days you ought to see a doctor"], "ans": "if you have a high temperature for three days you ought to consult a doctor", "e": "Đảo mệnh đề if lên đầu: If + hiện tại đơn, S + ought to + V.", "id": "u3_38"}, {"lv": 9, "t": "mcq", "p": "Why did Minh feel tired in class last term?", "o": ["He played football every day.", "He drank too little water.", "He went to bed before ten.", "He slept only about five hours a night."], "a": 3, "e": "Bài đọc: “slept only five hours a night, so he felt tired in class”.", "id": "u3_39"}, {"lv": 9, "t": "mcq", "p": "Which sentence is TRUE according to the passage?", "o": ["Minh goes to the football club twice a week.", "Minh still uses his phone until midnight.", "Minh never drinks water.", "Minh feels more worried than before."], "a": 0, "e": "Bài đọc: “joins the school football club twice a week”.", "id": "u3_40"}];
+const state={};
+let submitted=false, results={};
+function norm(s){return (s||"").toString().trim().toLowerCase().normalize('NFC').replace(/[.,!?;:'"“”‘’]/g,'').replace(/\s+/g,' ').trim();}
+function ok(q){
+  const v=state[q.id];
+  if(q.t==='mcq')return v===q.a;
+  const g=norm(v); if(!g)return false;
+  return q.acc.map(norm).includes(g);
+}
+function correctText(q){return q.t==='mcq'?q.o[q.a]:q.ans;}
+function lvQs(l){return Q.filter(q=>String(q.lv)===String(l));}
+function optsHtml(q,mode){return q.o.map((o,i)=>`<div class="opt" data-q="${q.id}" data-i="${i}" onclick="pick('${q.id}',${i},'${mode}')">${o}</div>`).join('');}
+function qHtml(q,idx,mode){
+  let h=`<div class="q" id="${mode}-${q.id}"><div class="qp"><span class="qn">Câu ${idx}.</span>${q.p}</div>`;
+  if(q.t==='mcq')h+=`<div class="opts">${optsHtml(q,mode)}</div>`;
+  else if(q.t==='fill')h+=`<input type="text" id="in-${mode}-${q.id}" autocomplete="off" autocapitalize="off" placeholder="Nhập đáp án..." oninput="typed('${q.id}',this.value,'${mode}')">`;
+  else h+=`<textarea id="in-${mode}-${q.id}" placeholder="Viết lại câu..." oninput="typed('${q.id}',this.value,'${mode}')"></textarea>`;
+  if(mode==='p'&&q.t!=='mcq')h+=`<button class="btn sm" onclick="checkP('${q.id}')">Kiểm tra</button>`;
+  h+=`<div class="note hidden" id="note-${mode}-${q.id}"></div></div>`;
+  return h;
+}
+function build(){
+  let h='',n=0;
+  Object.keys(LEVELS).forEach(l=>{
+    const qs=lvQs(l); if(!qs.length)return;
+    const m=LEVELS[l];
+    h+=`<div class="lv"><span>${m[0]}</span><span class="bd" id="bd-${l}">${m[1]}</span></div><div class="lvsub">${m[2]}</div>`;
+    if(l==='9')h+=`<div class="card" style="background:#f7f9ff"><b>📖 Đọc đoạn văn:</b><p style="margin:8px 0 0">${PASSAGE}</p></div>`;
+    h+=`<div class="card">`;
+    qs.forEach((q,i)=>{n++;h+=qHtml(q,i+1,'m');});
+    h+=`</div>`;
+  });
+  document.getElementById('body').innerHTML=h; progress();
+}
+function pick(id,i,mode){
+  const q=Q.find(x=>x.id===id);
+  if(mode==='m'){ if(submitted)return; state[id]=i;
+    document.querySelectorAll(`.opt[data-q="${id}"]`).forEach(e=>{ if(e.closest('#practice'))return; e.classList.toggle('sel',+e.dataset.i===i);}); progress();}
+  else{ const box=document.getElementById('p-'+id); const good=(i===q.a);
+    box.querySelectorAll('.opt').forEach(e=>{const k=+e.dataset.i; if(k===q.a)e.classList.add('ok'); else if(k===i)e.classList.add('no');});
+    const nt=document.getElementById('note-p-'+id); nt.classList.remove('hidden','ok','no');
+    nt.classList.add(good?'ok':'no'); nt.innerHTML=good?'✅ Đúng rồi!':`❌ Chưa đúng. Đáp án: <b>${q.o[q.a]}</b><br>${q.e}`;}
+}
+const pst={};
+function typed(id,v,mode){ if(mode==='m'){state[id]=v;progress();} else pst[id]=v;}
+function checkP(id){const q=Q.find(x=>x.id===id);const g=norm(pst[id]);const good=!!g&&q.acc.map(norm).includes(g);
+  const nt=document.getElementById('note-p-'+id); nt.classList.remove('hidden','ok','no'); nt.classList.add(good?'ok':'no');
+  nt.innerHTML=good?'✅ Đúng rồi!':`❌ Chưa đúng. Đáp án: <b>${q.ans}</b><br>${q.e}`;}
+function answered(q){const v=state[q.id];return v!==undefined&&v!==null&&String(v).trim()!=='';}
+function progress(){
+  const a=Q.filter(answered).length, t=Q.length, p=Math.round(a/t*100);
+  document.getElementById('fill').style.width=p+'%';
+  document.getElementById('plabel').textContent=`Đã trả lời ${a}/${t} câu (${p}%)`;
+  let s='';
+  Object.keys(LEVELS).forEach(l=>{const qs=lvQs(l);const d=qs.filter(answered).length;const full=d===qs.length;
+    s+=`<span class="chip ${full?'done':''}">${full?LEVELS[l][1].split(' ')[0]:'L'+(l==='9'?'B':l)} ${d}/${qs.length}</span>`;
+    const bd=document.getElementById('bd-'+l); if(bd)bd.classList.toggle('on',full);});
+  document.getElementById('strip').innerHTML=s;
+}
+function submitTest(){
+  const name=document.getElementById('sname').value.trim(), err=document.getElementById('err');
+  if(!name){err.textContent='Em vui lòng nhập Họ và tên trước khi nộp bài nhé.';err.classList.remove('hidden');document.getElementById('sname').focus();return;}
+  err.classList.add('hidden'); submitted=true;
+  let correct=0,xp=0,streak=0,comboHits=0;
+  Q.forEach((q,i)=>{
+    const good=ok(q), base=q.lv===9?20:10; let gain=0,combo=false;
+    if(good){correct++; if(streak>=3){gain=base*2;combo=true;comboHits++;streak=0;} else {gain=base;streak++;}}
+    else streak=0;
+    xp+=gain; results[q.id]={good,gain,combo};
+    const box=document.getElementById('m-'+q.id), nt=document.getElementById('note-m-'+q.id);
+    box.classList.add(good?'good':'bad');
+    if(q.t==='mcq')box.querySelectorAll('.opt').forEach(e=>{const k=+e.dataset.i;if(k===q.a)e.classList.add('ok');else if(k===state[q.id])e.classList.add('no');});
+    nt.classList.remove('hidden','ok','no'); nt.classList.add(good?'ok':'no');
+    nt.innerHTML=good?`✅ Chính xác! <span class="xp">+${gain} XP${combo?' (Combo x2 🔥)':''}</span>`:`❌ Chưa đúng. Đáp án đúng: <b>${correctText(q)}</b><br>💡 ${q.e}`;
+  });
+  const total=Q.length, score=Math.round(correct/total*100)/10, score10=score.toFixed(1), pct=correct/total*100;
+  const rank=pct>=90?`🏆 Sẵn sàng thi vào 10 – Unit ${UNIT}`:pct>=70?'⚔️ Chiến binh':'💪 Cố lên – làm lại để lên hạng';
+  document.getElementById('rscore').textContent=score10+'/10';
+  document.getElementById('rrank').textContent=rank;
+  document.getElementById('rsub').innerHTML=`Đúng ${correct}/${total} câu · ⚡ ${xp} XP${comboHits?` · 🔥 ${comboHits} lần Combo x2`:''}`;
+  let b='';
+  Object.keys(LEVELS).forEach(l=>{const qs=lvQs(l);const g=qs.filter(q=>results[q.id].good).length;
+    b+=`<span class="chip ${g===qs.length?'done':''}">${LEVELS[l][1]} ${g}/${qs.length}</span>`;});
+  document.getElementById('rbadges').innerHTML=b;
+  document.getElementById('result').classList.remove('hidden');
+  document.getElementById('submitbar').classList.add('hidden');
+  if(Q.every(q=>results[q.id].good))document.getElementById('retrybtn').classList.add('hidden');
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+  const st=document.getElementById('status'); st.textContent='Đang gửi kết quả...';
+  const payload={className:CLASS_LABEL,testName:TEST_NAME,school:document.getElementById('school').value.trim(),studentClass:document.getElementById('sclass').value.trim(),name:name,correct:correct,total:total,score:score,score10:score10,timestamp:new Date().toISOString()};
+  fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)})
+   .then(()=>{st.textContent='Đã gửi kết quả về hệ thống.';}).catch(()=>{st.textContent='Gửi thất bại – em hãy chụp màn hình điểm và báo cô.';});
+}
+function startPractice(){
+  const wrong=Q.filter(q=>!results[q.id].good); const p=document.getElementById('practice');
+  let h=`<h3 style="margin-top:0">🔁 Luyện lại câu sai (${wrong.length} câu) – chỉ để luyện, không gửi điểm</h3>`;
+  wrong.forEach((q,i)=>{h+=qHtml(q,i+1,'p');});
+  p.innerHTML=h; p.classList.remove('hidden'); p.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.addEventListener('DOMContentLoaded',build);
+</script>
+</body>
+</html>
